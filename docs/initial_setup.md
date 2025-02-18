@@ -17,11 +17,11 @@ We have found that if the coupling is less and dependency is one way it create a
 
 ## Setting up Backend and Folder Structure
 
-```c#
+```bash
 dotnet new webapi -o backend
 ```
 
-```
+```bash
 /backend
 ├── Properties
 │   └── launchSettings.json
@@ -40,3 +40,22 @@ dotnet new webapi -o backend
 │       └── Users
 └── tests
 ```
+
+## Setting up Frontend and Folder Structure
+
+```bash
+npm create vite@latest frontend -- --template react
+```
+
+```bash
+/frontend
+├── eslint.config.js
+├── index.html
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+├── src
+└── vite.config.js
+```
+
