@@ -15,7 +15,7 @@ git clone https://github.com/Learnathon-By-Geeky-Solutions/trio-qbit.git
 
 ## Resources
 
-- [Initial Setup](./docs/) 
+- [Initial Setup](./docs/initial_setup.md) 
 
 ## References
 
