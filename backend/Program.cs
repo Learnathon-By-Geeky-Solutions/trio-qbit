@@ -8,8 +8,8 @@ builder.Services.AddSwaggerGen();
 builder.Configuration.AddUserSecrets<Program>();
 var connectionString = builder.Configuration.GetConnectionString("CodeRevDB") 
                        ?? throw new InvalidOperationException("Connection string 'CodeRevDB' not found.");
-builder.Services.AddSolveReviewModule(connectionString);
 
+builder.Services.AddSolveReviewModule(connectionString);
 
 var app = builder.Build();
 

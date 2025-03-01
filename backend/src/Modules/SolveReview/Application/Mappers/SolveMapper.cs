@@ -1,11 +1,12 @@
 using backend.src.Modules.SolveReview.Application.DTOs;
+using backend.src.Modules.SolveReview.Application.Interfaces;
 using backend.src.Modules.SolveReview.Domain.Entities;
 
 namespace backend.src.Modules.SolveReview.Application.Mappers
 {
-    public class SovleMapper
+    public class SolveMapper : ISolveMapper
     {
-        public static Solve ToSolveEntity(CreateSolveDTO createDto)
+        public Solve ToSolveEntity(CreateSolveDTO createDto)
         {
             if (createDto == null) throw new ArgumentNullException(nameof(createDto));
 
@@ -26,7 +27,7 @@ namespace backend.src.Modules.SolveReview.Application.Mappers
                 // CreatedAt defaults to DateTime.UtcNow in the entity constructor
             };
         }
-        public static Solve UpdateEntity(Solve solve, UpdateSolveDTO updateDto)
+        public Solve UpdateEntity(Solve solve, UpdateSolveDTO updateDto)
         {
             if (solve == null) throw new ArgumentNullException(nameof(solve));
             if (updateDto == null) throw new ArgumentNullException(nameof(updateDto));
@@ -46,7 +47,7 @@ namespace backend.src.Modules.SolveReview.Application.Mappers
             return solve;
         }
 
-        public static SolveDTO ToSolveDTO(Solve solve) {
+        public SolveDTO ToSolveDTO(Solve solve) {
             if (solve == null) throw new ArgumentNullException(nameof(solve));
 
             return new SolveDTO
