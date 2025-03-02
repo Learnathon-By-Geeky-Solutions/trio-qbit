@@ -20,6 +20,7 @@ namespace backend.src.Modules.SolveReview.Application.Mappers
                 IsCodeCopied = createDto.IsCodeCopied,
                 CodingTime = createDto.CodingTime,
                 ProblemTags = createDto.ProblemTags,
+                TagImpact = createDto.TagImpact,
                 SubmissionAttempts = createDto.SubmissionAttempts,
                 RevisionCount = createDto.RevisionCount,
                 LastRevision = createDto.LastRevision,
@@ -39,6 +40,7 @@ namespace backend.src.Modules.SolveReview.Application.Mappers
             if (updateDto.IsCodeCopied.HasValue) solve.IsCodeCopied = updateDto.IsCodeCopied.Value;
             if (updateDto.CodingTime.HasValue) solve.CodingTime = updateDto.CodingTime.Value;
             if (updateDto.ProblemTags != null) solve.ProblemTags = updateDto.ProblemTags;
+            if (updateDto.TagImpact != null) solve.TagImpact = updateDto.TagImpact;
             if (updateDto.SubmissionAttempts.HasValue) solve.SubmissionAttempts = updateDto.SubmissionAttempts.Value;
             if (updateDto.RevisionCount.HasValue) solve.RevisionCount = updateDto.RevisionCount.Value;
             if (updateDto.LastRevision.HasValue) solve.LastRevision = updateDto.LastRevision.Value;
@@ -60,6 +62,7 @@ namespace backend.src.Modules.SolveReview.Application.Mappers
                 IsCodeCopied = solve.IsCodeCopied,
                 CodingTime = solve.CodingTime,
                 ProblemTags = solve.ProblemTags,
+                TagImpact = solve.TagImpact,
                 SubmissionAttempts = solve.SubmissionAttempts,
                 RevisionCount = solve.RevisionCount,
                 LastRevision = solve.LastRevision,

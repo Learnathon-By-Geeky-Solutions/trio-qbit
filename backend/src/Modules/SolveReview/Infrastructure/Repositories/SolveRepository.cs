@@ -33,6 +33,7 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Repositories
                 return await _context.Solves.FindAsync(id);
            
             }
+
             public async Task<List<Solve>> GetByUserIdAsync(Guid userId) {
 
                 return await _context.Solves.Where(s=> s.UserId == userId).ToListAsync();
@@ -75,6 +76,16 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Repositories
                     return false;
                 }
             }
+            
+            public  bool UpdateBulk(List<Solve> solves){
+                try {
+                    _context.Solves.UpdateRange(solves);
+                    return true;
+                } catch(Exception) {
+                    return false;
+                }
+            } 
+            
 
     }
 }

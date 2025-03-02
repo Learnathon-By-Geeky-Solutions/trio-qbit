@@ -15,10 +15,11 @@ namespace backend.src.Modules.SolveReview.Application.DTOs
         public bool IsCodeCopied { get; set; }
         public int CodingTime { get; set; } // Minutes
         public string[]? ProblemTags { get; set; }
+        public float? TagImpact {get; set;}
         public int SubmissionAttempts { get; set; }
         public int RevisionCount { get; set; }
         public DateTime LastRevision { get; set; }
         public DateTime CreatedAt { get; set; }
-        public float Priority { get; set; }
+        public double Priority { get; set; }
     }
 }

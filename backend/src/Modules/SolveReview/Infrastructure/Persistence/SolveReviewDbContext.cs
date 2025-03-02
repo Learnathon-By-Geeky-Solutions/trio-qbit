@@ -1,3 +1,4 @@
+using System.Text.Json;
 using backend.src.Modules.SolveReview.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,7 +27,11 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence
                 // property is required and parsed in json format
                 entity.Property(s => s.ProblemTags)
                       .HasColumnType("jsonb")
-                      .IsRequired();
+                      .HasConversion(
+                        // for converting System.string[] to JSON and vice-versa
+                        v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                        v => JsonSerializer.Deserialize<string[]>(v, (JsonSerializerOptions)null)
+                      ).IsRequired();
 
                 // foreign key 
                 entity.Property(s => s.UserId)
@@ -61,7 +66,7 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence
                         UserId = null, // Global weights
                         ThinkingTimeWeight = 0.2f,
                         LearningTimeWeight = 0.2f,
-                        IsCodeCopiedWeight = 0.15f,
+                        IsCodeCopiedWeight = 0.8f,
                         CodingTimeWeight = 0.15f,
                         SubmissionAttemptsWeight = 0.1f,
                         RevisionCountWeight = 0.05f,

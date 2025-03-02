@@ -11,10 +11,11 @@ namespace backend.src.Modules.SolveReview.Domain.Entities
         public bool IsCodeCopied { get; set; }
         public int CodingTime { get; set; } // Minutes
         public string[]? ProblemTags { get; set; } // JSON in Postgres
+        public float? TagImpact {get; set;}
         public int SubmissionAttempts { get; set; }
         public int RevisionCount { get; set; }
         public DateTime LastRevision { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public float Priority { get; set; } // Calculated based on weightsx
+        public DateTime CreatedAt { get; set; }
+        public double Priority { get; set; } // Calculated based on weightsx
     }
 }
