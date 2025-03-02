@@ -27,9 +27,10 @@ git clone https://github.com/Learnathon-By-Geeky-Solutions/trio-qbit.git
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL # because of PostGreSQL
 dotnet add package Microsoft.EntityFrameworkCore.Tools
-dotnet add package Swashbuckle.AspNetCore # for Swagger support
+dotnet add package Swashbuckle.AspNetCore # for Swagger support 
+dotnet add package Newtonsoft.Json # for Serialize string[] to JSON and Deserialize JSON to string[]
 ```
-3. Add a `.env` file into `/backend/db` directory with below contents
+3. Add a `<name>.env` file into `/backend/db` directory with below contents
 
 ```env
 POSTGRES_USER=<user_name>
@@ -41,7 +42,7 @@ POSTGRES_PORT=<port>
 4. Build and Run the **docker** `images` outof `docker-compose.yml` file in `/backend/db` directory
 
 ```bash
-docker-compose up -d --build
+docker-compose --env-file <name>.env up -d --build
 ```
 5. Now run the application backend after returning to `/backend` directory
 
@@ -51,12 +52,13 @@ dotnet watch run
 6. Open-up a new terminal and run the database migration 
 
 ```bash
-dotnet ef migrations add InitialCreate -c SolveReviewDbContext -o /src/Modules/SolveReview/Infrastructure/Persistence/Migrations
-dotnet ef database update -c SolveReviewDbContext
+dotnet ef migrations add <migration_name> -c <context_name> -o <absolute_path_of_the_folder>
+dotnet ef database update -c <context_name>
 ```
-7. You can verify database table `Solves` by entering into the docker-container
+7. You can verify database table `Solves` by entering into the `docker-container`
 
-**Note:** This **get-started** steps are not fully completed. As far now you can just `test` the `SolveReview` Module of our project. And validations also not added.
+
+**Note:** This **get-started** steps are not fully completed. As far now you can just `test` the `SolveReview` modules `/solve/add` end point of our project. And validations also not added.
 
 ## Resources
 
