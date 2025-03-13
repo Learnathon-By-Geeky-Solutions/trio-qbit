@@ -71,3 +71,4 @@ dotnet ef database update -c <context_name>
 - [To understand .NET Core Authentication and Authorization](https://www.youtube.com/playlist?list=PLOeFnOV9YBa4yaz-uIi5T4ZW3QQGHJQXi)
 - [To understand Unit Testing in .NET Core](https://www.youtube.com/watch?v=NSGy8nkTiyQ)
 - [To understand clean architechture](https://www.youtube.com/watch?v=1OLSE6tX71Y)
+- [To understand Oauth2.0 and OpenID Connect](https://www.youtube.com/watch?v=t18YB3xDfXI)

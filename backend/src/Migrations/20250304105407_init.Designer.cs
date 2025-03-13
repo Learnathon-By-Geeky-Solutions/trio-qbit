@@ -9,10 +9,10 @@ using backend.src.Modules.SolveReview.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
+namespace backend.src.Migrations
 {
     [DbContext(typeof(SolveReviewDbContext))]
-    [Migration("20250301091614_init")]
+    [Migration("20250304105407_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -67,7 +67,7 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000001"),
                             CodingTimeWeight = 0.15f,
-                            IsCodeCopiedWeight = 0.15f,
+                            IsCodeCopiedWeight = 0.8f,
                             LastRevisionWeight = 0.15f,
                             LearningTimeWeight = 0.2f,
                             RevisionCountWeight = 0.05f,
@@ -97,10 +97,10 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
                     b.Property<int>("LearningTime")
                         .HasColumnType("integer");
 
-                    b.Property<float>("Priority")
-                        .HasColumnType("real");
+                    b.Property<double>("Priority")
+                        .HasColumnType("double precision");
 
-                    b.PrimitiveCollection<string[]>("ProblemTags")
+                    b.Property<string>("ProblemTags")
                         .IsRequired()
                         .HasColumnType("jsonb");
 
@@ -113,6 +113,9 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
 
                     b.Property<int>("SubmissionAttempts")
                         .HasColumnType("integer");
+
+                    b.Property<float?>("TagImpact")
+                        .HasColumnType("real");
 
                     b.Property<int>("ThinkingTime")
                         .HasColumnType("integer");

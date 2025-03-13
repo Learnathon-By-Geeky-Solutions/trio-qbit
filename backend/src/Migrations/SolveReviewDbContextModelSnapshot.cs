@@ -2,21 +2,18 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend.src.Modules.SolveReview.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
+namespace backend.src.Migrations
 {
     [DbContext(typeof(SolveReviewDbContext))]
-    [Migration("20250302170828_updated_entity_solve")]
-    partial class updated_entity_solve
+    partial class SolveReviewDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,7 +97,7 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
                     b.Property<double>("Priority")
                         .HasColumnType("double precision");
 
-                    b.PrimitiveCollection<string[]>("ProblemTags")
+                    b.Property<string>("ProblemTags")
                         .IsRequired()
                         .HasColumnType("jsonb");
 

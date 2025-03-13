@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
+namespace backend.src.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
@@ -44,12 +44,13 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
                     LearningTime = table.Column<int>(type: "integer", nullable: false),
                     IsCodeCopied = table.Column<bool>(type: "boolean", nullable: false),
                     CodingTime = table.Column<int>(type: "integer", nullable: false),
-                    ProblemTags = table.Column<string[]>(type: "jsonb", nullable: false),
+                    ProblemTags = table.Column<string>(type: "jsonb", nullable: false),
+                    TagImpact = table.Column<float>(type: "real", nullable: true),
                     SubmissionAttempts = table.Column<int>(type: "integer", nullable: false),
                     RevisionCount = table.Column<int>(type: "integer", nullable: false),
                     LastRevision = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Priority = table.Column<float>(type: "real", nullable: false)
+                    Priority = table.Column<double>(type: "double precision", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,7 +75,7 @@ namespace backend.src.Modules.SolveReview.Infrastructure.Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "ParameterWeights",
                 columns: new[] { "Id", "CodingTimeWeight", "IsCodeCopiedWeight", "LastRevisionWeight", "LearningTimeWeight", "RevisionCountWeight", "SubmissionAttemptsWeight", "ThinkingTimeWeight", "UserId" },
-                values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), 0.15f, 0.15f, 0.15f, 0.2f, 0.05f, 0.1f, 0.2f, null });
+                values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), 0.15f, 0.8f, 0.15f, 0.2f, 0.05f, 0.1f, 0.2f, null });
 
             migrationBuilder.InsertData(
                 table: "TagWeights",
