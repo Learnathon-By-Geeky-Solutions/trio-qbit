@@ -1,18 +1,14 @@
-import React from 'react';
-import Heatmap from './components/Heatmap';
-//import './App.css'
+import { Outlet } from "react-router"
+import "./App.css"
+import Footer from "./components/shared/Footer"
+import Header from "./components/shared/Header"
 
 function App() {
-
-
   return (
     <>
-      
-      <h1>Trio_Qbit</h1>
-      <h2>CodeRev</h2>
-      <div className='App'>
-        <Heatmap/>
-      </div>
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   )
 }
